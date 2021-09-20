@@ -1,12 +1,8 @@
-import { userService } from '../_services';
-import { router } from '../_helpers';
+import { userService } from '@/_services';
+import { router } from '@/_helpers';
 
-const user = JSON.parse(localStorage.getItem('user'));
-const state = user
-    ? { status: { loggedIn: true }, user }
-    : { status: {}, user: null };
 
-const actions = {
+export const actions = {
     login({ dispatch, commit }, { username, password }) {
         commit('loginRequest', { username });
     
@@ -45,39 +41,4 @@ const actions = {
                 }
             );
     }
-};
-
-const mutations = {
-    loginRequest(state, user) {
-        state.status = { loggingIn: true };
-        state.user = user;
-    },
-    loginSuccess(state, user) {
-        state.status = { loggedIn: true };
-        state.user = user;
-    },
-    loginFailure(state) {
-        state.status = {};
-        state.user = null;
-    },
-    logout(state) {
-        state.status = {};
-        state.user = null;
-    },
-    registerRequest(state, user) {
-        state.status = { registering: true };
-    },
-    registerSuccess(state, user) {
-        state.status = {};
-    },
-    registerFailure(state, error) {
-        state.status = {};
-    }
-};
-
-export const account = {
-    namespaced: true,
-    state,
-    actions,
-    mutations
 };

@@ -1,32 +1,4 @@
-import { userService } from '../_services';
-
-const state = {
-    all: {}
-};
-
-const actions = {
-    getAll({ commit }) {
-        commit('getAllRequest');
-
-        userService.getAll()
-            .then(
-                users => commit('getAllSuccess', users),
-                error => commit('getAllFailure', error)
-            );
-    },
-
-    delete({ commit }, id) {
-        commit('deleteRequest', id);
-
-        userService.delete(id)
-            .then(
-                user => commit('deleteSuccess', id),
-                error => commit('deleteFailure', { id, error: error.toString() })
-            );
-    }
-};
-
-const mutations = {
+export const mutations = {
     getAllRequest(state) {
         state.all = { loading: true };
     },
@@ -57,11 +29,4 @@ const mutations = {
             return user;
         })
     }
-};
-
-export const users = {
-    namespaced: true,
-    state,
-    actions,
-    mutations
 };

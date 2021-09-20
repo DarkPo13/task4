@@ -11,10 +11,12 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
+    "alias": "^0.0.5",
     "axios": "^0.21.4",
     "bootstrap": "^5.1.1",
     "bootstrap-vue": "^2.21.2",
     "nprogress": "^0.2.0",
+    "resolve": "^1.20.0",
     "vee-validate": "^2.2.8",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3",

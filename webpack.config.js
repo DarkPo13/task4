@@ -1,9 +1,13 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const path = require('path');
 module.exports = {
     mode: 'development',
     resolve: {
-        extensions: ['.js', '.vue']
+        extensions: ['.js', '.vue'],
+        alias: {
+          "@": path.resolve(__dirname, 'src')
+        }
     },
     module: {
         rules: [{
